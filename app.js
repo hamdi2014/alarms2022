@@ -42,6 +42,18 @@ app.get('/home', (req, res, next) => {
     res.render('home')
 })
 
+app.get('/documents', (req, res, next) => {
+    res.render('documents')
+})
+
+app.get('/documents/turbine', (req, res, next) => {
+    res.render('turbine')
+})
+
+app.get('/documents/turbine/cap', (req, res, next) => {
+    res.render('cap')
+})
+
 app.use('/alarms',alarmsRout);
 
 app.use((err,req,res,next)=>{

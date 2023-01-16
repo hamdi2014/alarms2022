@@ -57,7 +57,7 @@
 
       <div id="main" class="col-md-12 row m-0">
         <div id="side-bar" class="col-md-2 bg-dark">
-            <ul class="nav nav-pills flex-column mb-auto">
+            <ul class="nav nav-pills flex-column mb-auto position-fixed">
                 <li class="nav-item">
                   <a href="#" class="nav-link text-white" aria-current="page">خانه</a>
                 </li>
@@ -92,6 +92,7 @@
                 <img src="/images/cap_smp.jpg" alt="CAP system SMP" class="img-fluid">
             </div>
             <hr class="border border-secondary border-2 opacity-50">
+            
             <div id="req-and-const">
                 <h2>I-نیازها و ملزومات</h2>
                 <p class="pe-5">
@@ -447,7 +448,7 @@
                         سیگنال‌های وضعیت ON و OFF هر پمپ (Po 001 و Po 002)
                     </li>
                 </ul>
-                <h3>در محل</h3>
+                <h3 id="monitor-locally">در محل</h3>
                 <h4>بالانس‌تانک</h4>
                 <ul class="list-group">
                     <li class="list-group-item">
@@ -720,10 +721,598 @@
                             <li class="list-group-item">
                                 ورودی پمپ را هواگیری کنید V-017, V-018
                             </li>
-                            <li class="list-group-item"></li>
-                            <li class="list-group-item"></li>
-                            <li class="list-group-item"></li>
+                            <li class="list-group-item">
+                                پس از آبگیری، بریکر پمپ را وصل کنید
+                            </li>
+                            <li class="list-group-item">
+                                مسیر را همانطور که در بخش <a href="#start-up">
+                                    راه‌اندازی
+                                </a>
+                                مشخص شده است، آبگیری کنید
+                            </li>
+                            <li class="list-group-item">
+                                پمپ را مطابق دستورالعمل گفته شده در قسمت 
+                                <a href="#start-up">
+                                    راه‌اندازی
+                                </a>
+                                استارت کنید
+                            </li>
                         </ul>
+                    </li>
+                </ul>
+                <h4>راه‌اندازی پس از تخلیه‌ی تانک آب دمینه</h4>
+                <ul class="list-group">
+                    <li class="list-group-item">والو تخلیه V-010 را ببندید</li>
+                    <li class="list-group-item">
+                        ایزوله‌والو V-009 لاین برگشتی به بالانس‌تانک را باز کنید
+                    </li>
+                    <li class="list-group-item">
+                        بریکر والو تغذیه‌ی اضطراری FV-18 را وصل کنید
+                    </li>
+                    <li class="list-group-item">
+                        ایزوله‌والو‌های V-001 و V-002 قسمت بالایی پمپ‌ها را باز کنید
+                    </li>
+                    <li class="list-group-item">
+                        لاین ترانسمیتر سطح را آبگیری کنید SED V-033
+                    </li>
+                    <li class="list-group-item">
+                        ایزوله‌والو SED V-022 قسمت بالایی والو تغذیه را باز کنید
+                    </li>
+                    <li class="list-group-item">
+                        تانک را تا بالاترین سطح کاری آن پر کنید تا والو LV-01 ببندد
+                    </li>
+                    <li class="list-group-item">
+                        والو خلاء‌شکن V-008 را ببندید
+                    </li>
+                    <li class="list-group-item">والو خلاء V-007 را باز کنید</li>
+                    <li class="list-group-item">بریکر پمپ‌ها را وصل کنید</li>
+                </ul>
+            </div>
+            <hr class="border border-secondary border-2 opacity-50">
+            <div id="incidents">
+                <h2>هشدارهای (آلارم‌های) سیستم</h2>
+                <h3>سطح کندانسور</h3>
+                <h4 id="condenser-low-level">سطح پایین کندانسور LSL-22</h4>
+                <table class="table table-bordered border-secondary">
+                    <thead>
+                        <tr>
+                            <th scope="col">ردیف</th>
+                            <th scope="col">آیتم</th>
+                            <th scope="col">دلایل احتمالی</th>
+                            <th scope="col">اقدامات لازم</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">۱</th>
+                            <td>Lv-17</td>
+                            <td>کنترل والو تغذیه‌ی نرمال کندانسور به
+                                طور کامل باز نکرده یا ایزوله است
+                            </td>
+                            <td>
+                                <ul class="list-group pe-0">
+                                    <li class="list-group-item">
+                                        والو تغذیه‌ی نرمال کندانسور را در حالت
+                                        دستی باز کنید
+                                    </li>
+                                    <li class="list-group-item">
+                                        وضعیت والو ایزوله‌ی قبل از
+                                        کنترل‌والو را بررسی کنید
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scop="row">۲</th>
+                            <td>Po 001/2</td>
+                            <td>پمپ از مدار خارج شده است</td>
+                            <td>علت خروج پمپ را بررسی کنید، اگر
+                                لازم شد، پمپ را از محل استارت کنید
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">۳</th>
+                            <td>V-005/6</td>
+                            <td>والوهای خروجی پمپ تغذیه بسته است</td>
+                            <td>بررسی کرده و والوها را باز کنید</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">۴</th>
+                            <td>-</td>
+                            <td>
+                                کنترل‌والو تغذیه‌ی نرمال کندانسور، کامل باز
+                                و پمپ در مدار است
+                            </td>
+                            <td>
+                                با استفاده از TPL موجود در اتاق فرمان والو
+                                تغذیه‌ی اضطراری را باز کنید
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">۵</th>
+                            <td>-</td>
+                            <td>
+                                والو مسیر برگشتی به بالانس‌تانک بسته نباشد
+                            </td>
+                            <td>
+                                مسیر و سیستم کنترل برگشتی به
+                                بالانس‌تانک را بررسی کنید
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h4 id="condenser-high-level">سطح بالای کندانسور LSH-14</h4>
+                <table class="table table-bordered border-secondary">
+                    <thead>
+                        <tr>
+                            <th scope="col">ردیف</th>
+                            <th scope="col">آیتم</th>
+                            <th scope="col">دلایل احتمالی</th>
+                            <th scope="col">اقدامات لازم</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scop="row">۱</th>
+                            <td>-</td>
+                            <td>
+                                کنترل‌والو تغذیه‌ی نرمال سطح کندانسور، کامل
+                                بسته نباشد
+                            </td>
+                            <td>
+                                در حالت دستی، این والو را ببندید؛ تنظیمات را بررسی
+                                کنید
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scop="row">۲</th>
+                            <td>-</td>
+                            <td>والو تغذیه‌ی اضطراری کندانسور، کامل بسته نباشد</td>
+                            <td>
+                                اگر نیاز شد در حالت دستی این والو را ببندید؛
+                                تنظیمات را بررسی کنید
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h4>سطح خیلی بالای کندانسور LSHH-15</h4>
+                <table class="table table-bordered border-secondary">
+                    <thead>
+                        <tr>
+                            <th scope="col">ردیف</th>
+                            <th scope="col">آیتم</th>
+                            <th scope="col">دلایل احتمالی</th>
+                            <th scope="col">اقدامات لازم</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">۱</th>
+                            <td>-</td>
+                            <td>
+                                همانند قسمت <a href="#condenser-high-level">
+                                    سطح بالای کنداانسور
+                                </a>
+                            </td>
+                            <td>
+                                اطمینان حاصل کنید که آلارم سطح بالا ظاهر شده است
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">۲</th>
+                            <td>-</td>
+                            <td>
+                                اطمینان حاصل کنید که کنترل‌والو مسیر برگشتی به تانک،
+                                کامل باز باشد:
+                                <ul class="list-group pe-0">
+                                    <li class="list-group-item">
+                                        کنترل معیوب
+                                    </li>
+                                </ul>
+                            </td>
+                            <td>
+                                کنترلر موجود در اتاق فرمان را در حالت دستی گذاشته
+                                و عملیات مناسب را انجام دهید
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h3>ترانسمیتر سطح</h3>
+                <table class="table table-bordered border-secondary">
+                    <thead>
+                        <tr>
+                            <th scope="col">ردیف</th>
+                            <th scope="col">آیتم</th>
+                            <th scope="col">دلایل احتمالی</th>
+                            <th scope="col">اقدامات لازم</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">۱</th>
+                            <td>
+                                <ul class="list-group pe-0 text-nowrap">
+                                    <li class="list-group-item">LT-17.1</li>
+                                    <li class="list-group-item">LT-17.2</li>
+                                    <li class="list-group-item">LT-17.3</li>
+                                </ul>
+                            </td>
+                            <td>
+                                هشدار برای نقص در یکی از سه ترانسمیتر سطح
+                            </td>
+                            <td>
+                                <ul class="list-group pe-0">
+                                    <li class="list-group-item">
+                                        اعداد نشان‌ داده شده در نشان‌دهنده‌ی سطح،
+                                        رکوردر و نشان‌دهنده‌ی محلی را با هم مقایسه کنید
+                                    </li>
+                                    <li class="list-group-item">
+                                        ترانسمیتر را تعمیر کنید
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">۱</th>
+                            <td>
+                                <ul class="list-group pe-0 text-nowrap">
+                                    <li class="list-group-item">LT-17.1</li>
+                                    <li class="list-group-item">LT-17.2</li>
+                                    <li class="list-group-item">LT-17.3</li>
+                                </ul>
+                            </td>
+                            <td>
+                                هشدار برای نقص در دو ترانسمیتر از سه ترانسمیتر سطح
+                                (چشمک زدن سلکتور AUTO-MANU کنترل سطح کندانسور
+                                HIC-23 در اتاق فرمان)
+                            </td>
+                            <td>
+                                کنترل را به حالت دستی تغییر دهید و رفع عیب کنید
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h3>سطح بالانس‌تانک</h3>
+                <h4 id="balance-tank-low-level">سطح پایین بالانس‌تانک</h4>
+                <table class="table table-bordered border-secondary">
+                    <thead>
+                        <tr>
+                            <th scope="col">ردیف</th>
+                            <th scope="col">آیتم</th>
+                            <th scope="col">دلایل احتمالی</th>
+                            <th scope="col">اقدامات لازم</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">۱</th>
+                            <td>LV-01</td>
+                            <td>
+                                اطمینان حاصل کنید که کنترل‌والو مسیر
+                                آب دمینه به طور کامل باز باشد:
+                                <ul class="list-group pe-0 text-nowrap">
+                                    <li class="list-group-item">نقص مکانیکی</li>
+                                </ul>
+                            </td>
+                            <td>
+                                اگر باز نبود از محل آن را باز کنید یا اینکه والو بای‌پس
+                                SED V-021 را باز کنید
+                                <ul class="list-group pe-0 text-nowrap">
+                                    <li class="list-group-item">تعمیر کنید</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">۲</th>
+                            <td>LSL-01</td>
+                            <td>ایراد سوییچ سطح</td>
+                            <td>تعمیر و رفع عیب کنید</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">۳</th>
+                            <td>-</td>
+                            <td>والو بای‌پس SED V-21 والو تغذیه باز باشد</td>
+                            <td>در محل بررسی کنید و اگر لازم شد ببندید</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h2>خطاهای (تریپ‌های) سیستم</h2>
+                <h3>سطح کندانسور</h3>
+                <table class="table table-bordered border-secondary">
+                    <thead>
+                        <tr>
+                            <th scope="col">ردیف</th>
+                            <th scope="col">آیتم</th>
+                            <th scope="col">دلایل احتمالی</th>
+                            <th scope="col">اقدامات لازم</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">۱</th>
+                            <td>LSLL-16</td>
+                            <td>
+                                سطح خیلی پایین
+                                <ul class="list-group pe-0">
+                                    <li class="list-group-item">
+                                        همانند قسمت <a href="#condenser-low-level">
+                                            سطح پایین کندانسور
+                                        </a>
+                                    </li>
+                                </ul>
+                            </td>
+                            <td>
+                                <ul class="list-group pe-0">
+                                    <li class="list-group-item">
+                                        بررسی کنید که کندانست‌پمپ‌ها تریپ کنند (سیستم ABP)
+                                    </li>
+                                    <li class="list-group-item">
+                                        اطمینان حاصل کنید که سوییچ سطح پایین عملکرد درستی داشته
+                                        و آلارم به موقع ظاهر شده است
+                                    </li>
+                                    <li class="list-group-item">
+                                        اقدامات لازم یکسان همانند قسمت
+                                        <a href="#condenser-low-level">
+                                            سطح پایین کندانسور
+                                        </a>
+                                    </li>
+                                    <li class="list-group-item">
+                                        به محض نرمال شدن سطح کندانسور سیستم ABP را
+                                        دوباره راه‌اندازی کنید
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h3>سطح بالانس‌تانک</h3>
+                <table class="table table-bordered border-secondary">
+                    <thead>
+                        <tr>
+                            <th scope="col">ردیف</th>
+                            <th scope="col">آیتم</th>
+                            <th scope="col">دلایل احتمالی</th>
+                            <th scope="col">اقدامات لازم</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">۱</th>
+                            <td>LSLL-02</td>
+                            <td>
+                                سطح خیلی پایین در بالانس‌تانک
+                                <ul class="list-group pe-0">
+                                    <li class="list-group-item">
+                                        بشرح قسمت
+                                        <a href="#balance-tank-low-level">
+                                            سطح پایین بالانس‌تانک
+                                        </a>
+                                    </li>
+                                </ul>
+                            </td>
+                            <td>
+                                <ul class="list-group pe-0">
+                                    <li class="list-group-item">
+                                        بررسی کنید که پمپ‌های تغذیه تریپ کنند
+                                    </li>
+                                    <li class="list-group-item">
+                                        اطمینان حاصل کنید که آلارم سطح پایین
+                                        ظاهر شده باشد (در غیر اینصورت آن را
+                                        تعمیر کنید)
+                                    </li>
+                                    <li class="list-group-item">
+                                        مراجعه کنید به قسمت
+                                        <a href="#balance-tank-low-level">
+                                            سطح پایین بالانس‌تانک
+                                        </a>
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h3>پمپ‌های تغذیه‌ی نرمال</h3>
+                <table class="table table-bordered border-secondary">
+                    <thead>
+                        <tr>
+                            <th scope="col">ردیف</th>
+                            <th scope="col">آیتم</th>
+                            <th scope="col">دلایل احتمالی</th>
+                            <th scope="col">اقدامات لازم</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">۱</th>
+                            <td>-</td>
+                            <td>
+                                تریپ پمپ به دلیل عوامل الکتریکی
+                                <ul class="list-group pe-0">
+                                    <li class="list-group-item">
+                                        به دلیل سطح خیلی پایین
+                                    </li>
+                                </ul>
+                            </td>
+                            <td>
+                                <ul class="list-group pe-0">
+                                    <li class="list-group-item">
+                                        بررسی کنید که پمپ استندبای استارت شود
+                                    </li>
+                                    <li class="list-group-item">
+                                        به دنبال علت تریپ باشید (به عنوان مثال
+                                        بریکر پمپ را بررسی کنید)
+                                    </li>
+                                    <li class="list-group-item">
+                                        بررسی کنید که نیازی به استارت پمپ استندبای نباشد
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div id="periodic-operations">
+                <h2>تست‌های بهره‌برداری</h2>
+                <h3>سطوح</h3>
+                <ul class="list-group">
+                    <li class="list-group-item">واحد از مدار خارج شد</li>
+                    <li class="list-group-item">زمان تست: هر ماه یکبار</li>
+                </ul>
+                <h4>کندانسور</h4>
+                <ul class="list-group">
+                    <h5>زمانی که سطح کندانسور نرمال باشد:</h5>
+                    <li class="list-group-item">
+                        کنترل‌والو مسیر برگشتی به بالانس‌تانک LCV-23 را در مقدار اولیه‌ی
+                        آن، باز نگه دارید (کنترل دستی به وسیله‌ی پوزیشنر موجود
+                        در اتاق فرمان HIC-23)
+                    </li>
+                    <li class="list-group-item">
+                        مقداری آب به کندانسور از طریق باز کردن والو تغذیه‌ی
+                        اضطراری FV-18 تزریق کنید. این کار را با استفاده از
+                        TPL HS-18 موجود در اتاق فرمان انجام دهید
+                    </li>
+                    <li class="list-group-item">
+                        بررسی کنید که:
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                آلارم سطح بالا ظاهر می‌شود LSH-14
+                            </li>
+                            <li class="list-group-item">
+                                آلارم سطح خیلی بالا ظاهر می‌شود LSHH-15
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="list-group-item">
+                        دوباره والو تغذیه‌ی اضطراری کندانسور را ببندید FV-18
+                    </li>
+                    <li class="list-group-item">
+                        کنترل‌والو سطح کندانسور در مسیر برگشتی به بالانس‌تانک
+                        را به حالت AUTO تنظیم کنید LCV-23
+                    </li>
+                    <li class="list-group-item">
+                        بررسی کنید که:
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                 آلارم سطح خیلی بالا ریست می‌شود LSHH-15
+                            </li>
+                            <li class="list-group-item">
+                                آلارم سطح بالا ریست می‌شود LSH-14
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="list-group-item">
+                        والوهای زیر را ببندید:
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                ایزوله‌والو قسمت بالایی V-022 تغذیه‌ی نرمال
+                                کندانسور
+                            </li>
+                            <li class="list-group-item">
+                                والو تغذیه‌ی اضطراری FV-18
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="list-group-item">
+                        فلوی آب برگشتی به بالانس‌تانک را از طریق LCV-23
+                        در حالت کنترل دستی افزایش دهید
+                    </li>
+                    <li class="list-group-item">
+                        سطح فیدتانک را کنترل کنید
+                    </li>
+                    <li class="list-group-item">
+                        بررسی کنید که:
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                آلارم سطح پایین ظاهر می‌شود LSL-22
+                            </li>
+                            <li class="list-group-item">
+                                آلارم سطح خیلی پایین ظاهر می‌شود LSLL-16.
+                                در ضمن کندانست‌پمپ‌ها تریپ می‌کنند
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="list-group-item">
+                        ایزوله‌والو V-022 قسمت بالایی تغذیه‌ی نرمال کندانسور را باز کنید
+                    </li>
+                    <li class="list-group-item">
+                        والو تغذیه‌ی اضطراری FV-18 را باز کنید
+                    </li>
+                    <li class="list-group-item">
+                        بررسی کنید که آلارم سطح خیلی پایین ریست می‌شود
+                    </li>
+                    <li class="list-group-item">
+                        یکی از کندانست‌پمپ‌ها را دوباره راه‌اندازی کنید
+                    </li>
+                    <li class="list-group-item">
+                        بررسی کنید که آلارم سطح پایین ریست می‌شود LSLL-22
+                    </li>
+                    <li class="list-group-item">
+                        پس از اینکه سطح نرمال شد LCV-23 دوباره به حالت
+                        AUTO تنظیم کنید
+                    </li>
+                </ul>
+                <h4>بالانس‌تانک</h4>
+                <ul class="list-group">
+                    <h5>زمانی که سطح بالانس‌تانک نرمال باشد:</h5>
+                    <li class="list-group-item">
+                        مقداری آب از طریق باز کردن والو بای‌پس SED V-021
+                        به تانک تزریق کنید
+                    </li>
+                    <li class="list-group-item">
+                        بررسی کنید که آلارم سطح بالا ظاهر می‌شود LSH-04
+                    </li>
+                    <li class="list-group-item">
+                        والو بای‌پس SED V-021 را ببندید
+                    </li>
+                    <li class="list-group-item">
+                        بررسی کنید که آلارم سطح بالا ریست می‌شود LSH-04
+                    </li>
+                    <li class="list-group-item">
+                        ایزوله والو SED V-022 قبل از کنترل‌والو سطح بالانس‌تانک
+                        را ببندید
+                    </li>
+                    <li class="list-group-item">
+                        بررسی کنید که آلارم سطح پایین ظاهر می‌شود LSL-03
+                    </li>
+                    <li class="list-group-item">
+                        بررسی کنید که آلارم سطح خیلی پایین ظاهر می‌شود LSLL-02
+                    </li>
+                    <li class="list-group-item">
+                        از تریپ پمپ‌های تغذیه‌ی نرمال اطمینان حاصل کنید PO 001
+                        و Po 002
+                    </li>
+                    <li class="list-group-item">
+                        ایزوله والو SED V-022 قبل از کنترل‌والو سطح بالانس‌تانک
+                        را باز کنید
+                    </li>
+                    <li class="list-group-item">
+                        پس از نرمال شدن سطح بالانس‌تانک، یکی از پمپ‌های تغذیه‌ی
+                        نرمال Po 001/Po 002 را استارت کنید
+                    </li>
+                </ul>
+                <h4>تعویض (Change-over) پمپ‌های تغذیه‌ی نرمال</h4>
+                <h5>زمان این کار هفته‌ای یک بار است</h5>
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        پمپ را با استفاده از ابزار کنترل آن که همان سلکتور و TPL
+                        است، استارت کنید
+                    </li>
+                    <li class="list-group-item">
+                        پمپی را که قبلا در مدار بود، از مدار خارج کنید
+                    </li>
+                    <li class="list-group-item">
+                        بررسی‌های مورد نیاز را مطابق موارد توصیف شده در
+                        قسمت <a href="monitor-locally">
+                            بازدید محلی
+                        </a>
+                        انجام دهید
+                    </li>
+                    <li class="list-group-item">
+                        <span class="fw-bold">توجه:</span>
+                        <p class="fst-italic">
+                            زمانی که مسیر آبگیری شده است، می‌توان پمپ
+                            را با والو خروجی کاملا باز استارت کرد
+                        </p>
                     </li>
                 </ul>
             </div>
@@ -749,9 +1338,9 @@
             
         </div>
         <div id="left-side-bar" class="col-md-2 bg-secondary">
-            <ul class="nav nav-pills flex-column mb-auto">
+            <ul class="nav nav-pills flex-column mb-auto position-fixed">
                 <li class="nav-item">
-                  <a href="#" class="nav-link text-white" aria-current="page">خانه</a>
+                  <a href="#" class="nav-link text-white" aria-current="page">سیستم جبران آب CAP</a>
                 </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link text-white" aria-current="page">آلارمهای اتاق فرمان بخار</a>
